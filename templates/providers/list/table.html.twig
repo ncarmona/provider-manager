@@ -1,28 +1,28 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<table border="1">
+<table class="table">
     <thead>
         <tr>
-            <td>Provider name</td>
-            <td>Edit</td>
-            <td>Delete</td>
+            <td scope="col">Provider name</td>
+            <td scope="col">Edit</td>
+            <td scope="col">Delete</td>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Provider 1</td>
-            <td><a href="#">Edit</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a href="#" class="text-body">Provider 1</a></td>
+            <td><a href="#" title="Edit provider 1"><i class="bi bi-pencil"></i></a></td>
+            <td><a href="#" title="Edit provider 1"><i class="bi bi-trash3 text-danger"></i></a></td>
         </tr>
         <tr>
-            <td>Provider 2</td>
-            <td><a href="#">Edit</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a href="#" class="text-muted">Provider 2</a></td>
+            <td><a href="#" title="Edit provider 2"><i class="bi bi-pencil"></i></a></td>
+            <td><a href="#" title="Delete provider 2"><i class="bi bi-trash3 text-danger"></i></a></td>
         </tr>
         <tr>
-            <td>Provider 3</td>
-            <td><a href="#">Edit</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a href="#" class="text-body">Provider 3</a></td>
+            <td><a href="#" title="Edit provider 3"><i class="bi bi-pencil"></i></a></td>
+            <td><a href="#" title="Delete provider 3"><i class="bi bi-trash3 text-danger"></i></a></td>
         </tr>
     </tbody>
 </table>
