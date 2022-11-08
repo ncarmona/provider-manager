@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<table border="1">
+    <thead>
+        <tr>
+            <td>Provider name</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Provider 1</td>
+            <td><a href="#">Edit</a></td>
+            <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Provider 2</td>
+            <td><a href="#">Edit</a></td>
+            <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Provider 3</td>
+            <td><a href="#">Edit</a></td>
+            <td><a href="#">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+
+    {% block content %}{% endblock %}
+{% endblock %}
