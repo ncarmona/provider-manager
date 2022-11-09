@@ -68,6 +68,11 @@ class ProviderController extends AbstractController {
         $doctrine_manager = $this->getDoctrine()->getManager();
         $fetchedProvider = $this->providerRepository->find($id);
 
+        if ($fetchedProvider == null) {
+            $this->addFlash('error', 'Provider does not exists.');
+            return $this->redirectToRoute('provider_list');
+        }
+        
         $form = $this->createForm(ProviderType::class, $fetchedProvider); 
         $render_parameters = array('provider_form' => $form->createView());
         $form->handleRequest($request);
