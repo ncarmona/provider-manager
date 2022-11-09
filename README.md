@@ -16,6 +16,10 @@ If prefer you can download the code manually through the github page.
 All the commands of this section must be executed in the root folder of the project.
 
 ### Install composer dependencies
+```
+composer install
+```
+### Apply migrations
 ```bash
 php bin/console doctrine:migrations:migrate
 ```
