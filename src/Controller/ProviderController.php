@@ -82,7 +82,7 @@ class ProviderController extends AbstractController {
 
             return $this->redirectToRoute('provider_list');
         }
-        return $this->render('providers/form/form.html.twig', $render_parameters);
+        return $this->render('providers/form/form.html.twig', $render_parameters);        
     }
 }
 ?>
