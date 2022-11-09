@@ -36,6 +36,11 @@
                 <td><a href="{{ path('provider_delete', {'id': provider.id}) }}" title="Delete provider"><i class="bi bi-trash3 text-danger"></i></a></td>
             </tr>
         {% endfor %}
+        {% if providers is empty %}
+        <tr>
+            <td colspan="5" class="text-center font-italic">There are not providers yet.</td>
+        </tr>
+        {% endif %}
         </tbody>
     </table>
     <a class="btn btn-primary" href="{{ path('provider_create') }}" role="button">Create provider</a>
