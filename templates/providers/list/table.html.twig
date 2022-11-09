@@ -1,5 +1,3 @@
-{% extends 'base.html.twig' %}
-{% block body %}
     <div class="fixed-bottom">
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
@@ -45,6 +43,3 @@
         {% endif %}
         </tbody>
     </table>
-    <a class="btn btn-primary" href="{{ path('provider_create') }}" role="button">Create provider</a>
-    {% block content %}{% endblock %}
-{% endblock %}

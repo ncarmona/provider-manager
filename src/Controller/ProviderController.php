@@ -21,7 +21,7 @@ class ProviderController extends AbstractController {
      */
     public function list(): Response {
         $providers = $this->providerRepository->findAll();
-        return $this->render('providers/list/table.html.twig', ['providers' => $providers]);
+        return $this->render('views/list.html.twig', ['providers' => $providers, 'title' => 'providers list']);
     }
     /**
      * @route("/delete/{id}", name="provider_delete")
