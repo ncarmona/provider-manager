@@ -24,6 +24,13 @@ class Provider
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 255,
+     *      minMessage = "Must have at least 3 characters.",
+     *      maxMessage = "Must not have more than 255.",
+     *      allowEmptyString = false
+     * )
      */
     private $name;
 
