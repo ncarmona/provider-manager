@@ -4,5 +4,5 @@
             {% include 'shared/viewTitle.html.twig' with {'title': view_title} %}
         </div>
         {% include 'providers/list/table.html.twig' with {'providers': providers} %}
-        <a class="btn btn-primary" href="{{ path('provider_create') }}" role="button">Create provider</a>
+        {% include 'providers/list/createProviderButton.html.twig' %}
     {% endblock %}
