@@ -23,6 +23,22 @@ class ProviderController extends AbstractController {
         $providers = $this->providerRepository->findAll();
         return $this->render('providers/list/table.html.twig', ['providers' => $providers]);
     }
+    /**
+     * @route("/delete/{id}", name="provider_delete")
+     */
+    public function delete($id): Response {
+        $doctrine_manager = $this->getDoctrine()->getManager();
+        $providerToDelete = $this->providerRepository->find($id);
+
+        if ($providerToDelete == null) $this->addFlash('error', 'Provider does not exists.');
+        else {
+            $doctrine_manager->remove($providerToDelete);
+            $doctrine_manager->flush();
+    
+            $this->addFlash('success', 'Provider deleted successfully.');
+        }
+
+        return $this->redirectToRoute('provider_list');
     }
     /**
      * @route("/create", name="provider_create")
