@@ -37,6 +37,11 @@ class Provider
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Must not have more than 255.",
+     *      allowEmptyString = false
+     * )
      */
     private $email;
 
