@@ -21,7 +21,7 @@ class ProviderController extends AbstractController {
      */
     public function list(): Response {
         $providers = $this->providerRepository->findAll();
-        return $this->render('views/list.html.twig', ['providers' => $providers, 'title' => 'providers list']);
+        return $this->render('views/list.html.twig', ['providers' => $providers, 'view_title' => 'providers list']);
     }
     /**
      * @route("/delete/{id}", name="provider_delete")
@@ -63,8 +63,9 @@ class ProviderController extends AbstractController {
         $render_parameters = array(
             'provider_form' => $form->createView(),
             'form_button_label' => 'Create',
+            'view_title' => 'create provider'
         );
-        return $this->render('providers/form/form.html.twig', $render_parameters);
+        return $this->render('views/providerForm.html.twig', $render_parameters);
     }
     /**
      * @route("/edit/{id}", name="provider_edit")
@@ -95,8 +96,9 @@ class ProviderController extends AbstractController {
         $render_parameters = array(
             'provider_form' => $form->createView(),
             'form_button_label' => 'Edit',
+            'view_title' => 'edit provider'
         );
-        return $this->render('providers/form/form.html.twig', $render_parameters);        
+        return $this->render('views/providerForm.html.twig', $render_parameters);      
     }
 }
 ?>
