@@ -18,7 +18,9 @@ class ProviderController extends AbstractController {
      * @route("/", name="provider_list")
      */
     public function list(): Response {
-        return $this->render('providers/list/table.html.twig');
+        $providers = $this->providerRepository->findAll();
+        return $this->render('providers/list/table.html.twig', ['providers' => $providers]);
+    }
     }
     /**
      * @route("/create", name="provider_create")
