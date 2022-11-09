@@ -37,6 +37,12 @@ class ProviderController extends AbstractController {
             $doctrine_manager->persist($provider);
             $doctrine_manager->flush();
 
+            $this->addFlash('success', 'Provider created successfully.');
+
+            return $this->redirectToRoute('provider_list');
+        }
+        return $this->render('providers/form/form.html.twig', $render_parameters);
+    }
             return $this->redirectToRoute('provider_list');
         }
         return $this->render('providers/form/form.html.twig', $render_parameters);
