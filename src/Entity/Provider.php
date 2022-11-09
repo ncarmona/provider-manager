@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\ProviderRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass=ProviderRepository::class)
+ * @UniqueEntity("name")
+ * @UniqueEntity("email")
+ * @UniqueEntity("phone")
  */
 class Provider
 {
