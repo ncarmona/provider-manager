@@ -21,12 +21,14 @@ class ProviderType extends AbstractType
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
             ->add('phone', TelType::class)
-            ->add('active', CheckboxType::class)
+            ->add('active', CheckboxType::class, [
+                'required' => false,
+            ])
             ->add('type',ChoiceType::class, [
                 'choices'  => [
-                    'Maybe' => 1,
-                    'Yes' => 2,
-                    'No' => 3,
+                    'Hotel' => 1,
+                    'Track' => 2,
+                    'Complement' => 3,
                 ],
             ])
             ->add('send', SubmitType::class);
