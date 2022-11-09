@@ -42,6 +42,16 @@ class Provider
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +113,26 @@ class Provider
     public function setType(int $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?Datetime {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\Datetime $date): self {
+        $this->createdAt = $date;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?Datetime {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\Datetime $date): self {
+        $this->updatedAt = $date;
 
         return $this;
     }

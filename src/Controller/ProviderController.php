@@ -50,6 +50,8 @@ class ProviderController extends AbstractController {
 
         if($form->isSubmitted() && $form->isValid()) {
             $provider = $form->getData();
+            $provider->setCreatedAt(new \Datetime());
+            $provider->setUpdatedAt(new \Datetime());
             $doctrine_manager = $this->getDoctrine()->getManager();
             $doctrine_manager->persist($provider);
             $doctrine_manager->flush();
@@ -81,6 +83,7 @@ class ProviderController extends AbstractController {
 
         if($form->isSubmitted() && $form->isValid()) {
             $provider = $form->getData();
+            $provider->setUpdatedAt(new \Datetime());
             $doctrine_manager = $this->getDoctrine()->getManager();
             $doctrine_manager->persist($provider);
             $doctrine_manager->flush();
