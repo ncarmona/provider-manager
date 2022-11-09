@@ -43,6 +43,11 @@ class Provider
     /**
      * @ORM\Column(type="integer", unique=true)
      * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 9,
+     *      max = 9,
+     *      allowEmptyString = false
+     * )
      */
     private $phone;
 
