@@ -117,7 +117,7 @@ class Provider
         return $this;
     }
 
-    public function getCreatedAt(): ?Datetime {
+    public function getCreatedAt(): \Datetime {
         return $this->createdAt;
     }
 
@@ -127,7 +127,7 @@ class Provider
         return $this;
     }
 
-    public function getUpdatedAt(): ?Datetime {
+    public function getUpdatedAt(): \Datetime {
         return $this->updatedAt;
     }
 

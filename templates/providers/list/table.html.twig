@@ -14,6 +14,8 @@
         <thead>
             <tr>
                 <td scope="col">Provider name</td>
+                <td scope="col">edited at</td>
+                <td scope="col">created at</td>
                 <td scope="col">Edit</td>
                 <td scope="col">Delete</td>
             </tr>
@@ -28,6 +30,8 @@
                         <span class="text-muted">{{provider.name}}</span>
                     {% endif %}
                 </td>
+                <td>{{ provider.updatedAt|date('d-m-Y H:i:s') }}</td>
+                <td>{{ provider.createdAt|date('d-m-Y H:i:s') }}</td>
                 <td><a href="{{ path('provider_edit', {'id': provider.id}) }}" title="Edit provider"><i class="bi bi-pencil"></i></a></td>
                 <td><a href="{{ path('provider_delete', {'id': provider.id}) }}" title="Delete provider"><i class="bi bi-trash3 text-danger"></i></a></td>
             </tr>
