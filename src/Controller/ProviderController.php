@@ -6,6 +6,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\ProviderType;
 use App\Entity\Provider;
+use App\Repository\ProviderRepository;
+
 // use App\Controller\Request;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -43,6 +45,25 @@ class ProviderController extends AbstractController {
         }
         return $this->render('providers/form/form.html.twig', $render_parameters);
     }
+    /**
+     * @route("/edit/{id}", name="provider_edit")
+     */
+    public function edit(Request $request, $id): Response {
+        $doctrine_manager = $this->getDoctrine()->getManager();
+        $fetchedProvider = $this->providerRepository->find($id);
+
+        $form = $this->createForm(ProviderType::class, $fetchedProvider); 
+        $render_parameters = array('provider_form' => $form->createView());
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $provider = $form->getData();
+            $doctrine_manager = $this->getDoctrine()->getManager();
+            $doctrine_manager->persist($provider);
+            $doctrine_manager->flush();
+
+            $this->addFlash('success', 'Provider edited successfully.');
+
             return $this->redirectToRoute('provider_list');
         }
         return $this->render('providers/form/form.html.twig', $render_parameters);
