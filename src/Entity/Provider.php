@@ -23,16 +23,19 @@ class Provider
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank
      */
     private $email;
 
     /**
      * @ORM\Column(type="integer", unique=true)
+     * @Assert\NotBlank
      */
     private $phone;
 
