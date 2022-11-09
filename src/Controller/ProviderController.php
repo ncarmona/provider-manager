@@ -10,6 +10,10 @@ use App\Entity\Provider;
 use Symfony\Component\HttpFoundation\Request;
 
 class ProviderController extends AbstractController {
+    private $providerRepository;
+    public function __construct(ProviderRepository $providerRepository) {
+        $this->providerRepository = $providerRepository;
+    }
     /**
      * @route("/", name="provider_list")
      */
