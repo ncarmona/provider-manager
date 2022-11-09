@@ -46,7 +46,6 @@ class ProviderController extends AbstractController {
     public function create(Request $request): Response {
         $provider = new Provider();
         $form = $this->createForm(ProviderType::class, $provider); 
-        $render_parameters = array('provider_form' => $form->createView());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -59,6 +58,10 @@ class ProviderController extends AbstractController {
 
             return $this->redirectToRoute('provider_list');
         }
+        $render_parameters = array(
+            'provider_form' => $form->createView(),
+            'form_button_label' => 'Create',
+        );
         return $this->render('providers/form/form.html.twig', $render_parameters);
     }
     /**
@@ -74,7 +77,6 @@ class ProviderController extends AbstractController {
         }
         
         $form = $this->createForm(ProviderType::class, $fetchedProvider); 
-        $render_parameters = array('provider_form' => $form->createView());
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
@@ -87,6 +89,10 @@ class ProviderController extends AbstractController {
 
             return $this->redirectToRoute('provider_list');
         }
+        $render_parameters = array(
+            'provider_form' => $form->createView(),
+            'form_button_label' => 'Edit',
+        );
         return $this->render('providers/form/form.html.twig', $render_parameters);        
     }
 }
